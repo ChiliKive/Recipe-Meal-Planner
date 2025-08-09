@@ -1,4 +1,16 @@
 .env
-planer_venv/
+
 .$ER.drawio.bkp
 .$ER.drawio.dtmp
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+*/migrations/__pycache__/
+
+/static/
+
+.idea/
+.vscode/
