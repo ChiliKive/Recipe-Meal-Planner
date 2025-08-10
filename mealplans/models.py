@@ -38,9 +38,11 @@ class MealPlan(models.Model):
 
 class MealPlanDay(models.Model):
     user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='meal_plan_days'
+    )
 
-
-        
     meal_plan = models.ForeignKey(
         MealPlan,
         on_delete=models.CASCADE,
