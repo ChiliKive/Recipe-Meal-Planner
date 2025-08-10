@@ -9,9 +9,11 @@ class Recipe(models.Model):
     instructions = models.TextField(blank=True)
 
     calories = models.IntegerField(null=True, blank=True)
+    
     protein = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     carbohydrates = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     fats = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    fibe
 
     image_path = models.ImageField(upload_to='recipes/images/', blank=True, null=True)
     
