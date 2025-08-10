@@ -7,4 +7,4 @@ class Recipe(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     calories = models.IntegerField(null=True, blank=True)
-    image
+    image_path = models.ImageField(upload_to='recipes/', blank=True, null=True)
