@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import UserProfile
 
-# Register your models here.
+# Реєструємо модель UserProfile для адмін-панелі.
+admin.site.register(UserProfile)
