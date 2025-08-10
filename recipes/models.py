@@ -25,3 +25,5 @@ class Recipe(models.Model):
         return self.title
     
 class Ingredient(models.Model):
+    name = models.CharField(max_length=255)
+    
