@@ -29,4 +29,9 @@ class Ingredient(models.Model):
     unit = models.CharField(max_length=50, choices=[
         ('g', 'grams'),
         ('ml', 'milliliters'),
-        
+        ('kg', 'kilograms'),
+        ('oz', 'ounces'),
+        ('lb', 'pounds'),
+        ('l', 'liters'),
+    ])
+    quantity = models.DecimalField(max_digits=10, decimal_places=2) 
