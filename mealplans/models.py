@@ -4,6 +4,21 @@ from recipes.models import Recipe, Ingredient
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 
+class Meal(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='meals'
+    )
+    
+    name = models.CharField(max_length=50, choices=[
+        ('breakfast', 'Сніданок'), ('lunch', 'Обід'),
+        ('dinner', 'Вечеря'), ('snack', 'Перекус'),
+    ])
+
+    def __str__(self):
+        return f"{self.user.username} - {self.name}"
+    
 class MealPlan(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
