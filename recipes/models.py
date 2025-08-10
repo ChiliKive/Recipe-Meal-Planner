@@ -44,4 +44,5 @@ class Ingredient(models.Model):
         return self.name
 
 class RecipeIngredient(models.Model):
-    recipe = models.ForeignKey(
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    q
