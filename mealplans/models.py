@@ -28,7 +28,6 @@ class MealPlanDay(models.Model):
     )
     name = models.CharField(max_length=100)
     
-    # Зв'язок Many-to-Many з Meal через проміжну модель MealPlanDayMeal
     meals = models.ManyToManyField(
         Meal,
         through='MealPlanDayMeal',
