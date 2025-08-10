@@ -45,4 +45,4 @@ class Ingredient(models.Model):
 
 class RecipeIngredient(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    q
+    quantity = models.DecimalField(max_digits=6, decimal_places=2)
