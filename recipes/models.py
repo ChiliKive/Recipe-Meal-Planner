@@ -13,7 +13,7 @@ class Recipe(models.Model):
     protein = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     carbohydrates = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     fats = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
-    fibe
+    fiber = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
 
     image_path = models.ImageField(upload_to='recipes/images/', blank=True, null=True)
     
