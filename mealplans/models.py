@@ -19,6 +19,27 @@ class Meal(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.name}"
     
+class MealPlan(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='meal_plans'
+    )
+    name = models.CharField(max_length=100)
+
+    description = models.TextField(blank=True, null=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    days = models.ManyToManyField(
+        MealPlanDay,
+        through='PlanDay',
+        related_name='meal_plans'
+    )
+
+    def __str__(self):
+        return f"{self.name} for {self.user.username}"
 
 class MealPlanDay(models.Model):
     user = models.ForeignKey(
