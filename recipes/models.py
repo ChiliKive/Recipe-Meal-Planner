@@ -8,4 +8,6 @@ class Recipe(models.Model):
     description = models.TextField(blank=True)
     calories = models.IntegerField(null=True, blank=True)
     image_path = models.ImageField(upload_to='recipes/images/', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
