@@ -48,7 +48,6 @@ class MealPlanDay(models.Model):
         related_name='days'
     )
     name = models.CharField(max_length=100)
-    
     day = models.CharField(max_length=10, choices=[
         ('monday', 'Monday'),
         ('tuesday', 'Tuesday'),
