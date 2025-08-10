@@ -116,3 +116,20 @@ class MealItem(models.Model):
 
     def __str__(self):
         return f"{self.servings} servings of {self.content_object} in {self.meal.name}"
+    
+
+class PlanDay(models.Model):
+    meal_plan = models.ForeignKey(MealPlan, on_delete=models.CASCADE)
+    meal_plan_day = models.ForeignKey(MealPlanDay, on_delete=models.CASCADE)
+    day_of_week = models.CharField(max_length=10, choices=[
+        ('monday', 'Понеділок'), ('tuesday', 'Вівторок'),
+        ('wednesday', 'Середа'), ('thursday', 'Четвер'),
+        ('friday', 'П’ятниця'), ('saturday', 'Субота'),
+        ('sunday', 'Неділя'),
+    ])
+
+    class Meta:
+        unique_together = ('meal_plan', 'day_of_week')
+
+    def __str__(self):
+        return f"{self.day_of_week} in {self.meal_plan.name}"
