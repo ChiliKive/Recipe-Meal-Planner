@@ -39,4 +39,8 @@ class Ingredient(models.Model):
     carbohydrates_per_unit = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     fats_per_unit = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     fiber_per_unit = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
-    
+
+    def __str__(self):
+        return self.name
+
+class RecipeIngredient(models.Model):
