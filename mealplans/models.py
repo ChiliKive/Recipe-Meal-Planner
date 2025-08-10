@@ -37,8 +37,26 @@ class MealPlanDay(models.Model):
         unique_together = ('meal_plan', 'day')
 
     def __str__(self):
-        return f"{self.day} of {self.meal_plan.name}"
+        return f"{self.name} of {self.meal_plan.name}"
     
+class MealPlanDay(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='meal_plan_templates'
+    )
+    name = models.CharField(max_length=100)
+    
+    # Зв'язок Many-to-Many з Meal через проміжну модель MealPlanDayMeal
+    meals = models.ManyToManyField(
+        Meal,
+        through='MealPlanDayMeal',
+        related_name='meal_plan_templates'
+    )
+
+    def __str__(self):
+        return f"{self.name} by {self.user.username}"
+
 class MealPlan(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
