@@ -28,10 +28,13 @@ class MealPlanDay(models.Model):
         related_name='days'
     )
     day = models.CharField(max_length=10, choices=[
-        ('monday', 'Понеділок'), ('tuesday', 'Вівторок'),
-        ('wednesday', 'Середа'), ('thursday', 'Четвер'),
-        ('friday', 'П’ятниця'), ('saturday', 'Субота'),
-        ('sunday', 'Неділя'),
+        ('monday', 'Monday'),
+        ('tuesday', 'Tuesday'),
+        ('wednesday', 'Wednesday'),
+        ('thursday', 'Thursday'),
+        ('friday', 'Friday'),
+        ('saturday', 'Saturday'),
+        ('sunday', 'Sunday'),
     ])
 
     class Meta:
