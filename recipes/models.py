@@ -50,5 +50,3 @@ class RecipeIngredient(models.Model):
 
     class Meta:
         unique_together = ('recipe', 'ingredient')
-
-    def __str__(self):
