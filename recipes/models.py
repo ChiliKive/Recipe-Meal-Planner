@@ -26,4 +26,4 @@ class Recipe(models.Model):
     
 class Ingredient(models.Model):
     name = models.CharField(max_length=255)
-    
+    unit = 
