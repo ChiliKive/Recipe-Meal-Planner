@@ -7,3 +7,4 @@ class Recipe(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     calories = models.IntegerField(null=True, blank=True)
+    image
