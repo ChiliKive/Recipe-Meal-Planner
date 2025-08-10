@@ -37,6 +37,30 @@ class MealPlanDay(models.Model):
     def __str__(self):
         return f"{self.name} by {self.user.username}"
 
+class MealPlanDayMeal(models.Model):
+    meal_plan_day = models.ForeignKey(
+        MealPlanDay,
+        on_delete=models.CASCADE,
+        related_name='day_meals'
+    )
+    meal = models.ForeignKey(
+        Meal,
+        on_delete=models.CASCADE,
+        related_name='day_meals'
+    )
+    servings = models.IntegerField(default=1)
+
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+    
+    class Meta:
+        unique_together = ('meal_plan_day', 'meal')
+
+    def __str__(self):
+        return f"{self.content_object} in {self.meal.name} on {self.meal_plan_day.name}"
+
+
 class MealPlan(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
