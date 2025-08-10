@@ -10,12 +10,12 @@ class Meal(models.Model):
         on_delete=models.CASCADE,
         related_name='meals'
     )
-    
-    name = models.CharField(max_length=50, choices=[
-        ('breakfast', 'Сніданок'), ('lunch', 'Обід'),
-        ('dinner', 'Вечеря'), ('snack', 'Перекус'),
-    ])
 
+    name = models.CharField(max_length=50, choices=[
+        ('breakfast', 'breakfast'), ('lunch', 'lunch'),
+        ('dinner', 'dinner'), ('snack', 'snack'),
+    ])
+    ''
     def __str__(self):
         return f"{self.user.username} - {self.name}"
     
