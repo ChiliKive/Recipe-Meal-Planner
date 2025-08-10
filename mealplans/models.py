@@ -37,6 +37,10 @@ class MealPlan(models.Model):
         return f"{self.name} for {self.user.username}"
 
 class MealPlanDay(models.Model):
+    user = models.ForeignKey(
+
+
+        
     meal_plan = models.ForeignKey(
         MealPlan,
         on_delete=models.CASCADE,
