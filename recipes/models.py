@@ -34,4 +34,7 @@ class Ingredient(models.Model):
         ('lb', 'pounds'),
         ('l', 'liters'),
     ])
-    quantity = models.DecimalField(max_digits=10, decimal_places=2) 
+    calories_per_unit = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    protein_per_unit = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    carbohydrates_per_unit = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    
