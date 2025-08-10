@@ -19,6 +19,26 @@ class Meal(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.name}"
     
+
+class MealPlanDay(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='meal_plan_days'
+    )
+    meal_plan = models.ForeignKey(
+        MealPlan,
+        on_delete=models.CASCADE,
+        related_name='days'
+    )
+    name = models.CharField(max_length=100)
+
+    class Meta:
+        unique_together = ('meal_plan', 'day')
+
+    def __str__(self):
+        return f"{self.day} of {self.meal_plan.name}"
+    
 class MealPlan(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -41,24 +61,6 @@ class MealPlan(models.Model):
     def __str__(self):
         return f"{self.name} for {self.user.username}"
 
-class MealPlanDay(models.Model):
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        related_name='meal_plan_days'
-    )
-    meal_plan = models.ForeignKey(
-        MealPlan,
-        on_delete=models.CASCADE,
-        related_name='days'
-    )
-    name = models.CharField(max_length=100)
-
-    class Meta:
-        unique_together = ('meal_plan', 'day')
-
-    def __str__(self):
-        return f"{self.day} of {self.meal_plan.name}"
 
 class Meal(models.Model):
     name = models.CharField(max_length=50, unique=True, choices=[
