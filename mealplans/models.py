@@ -11,10 +11,12 @@ class MealPlan(models.Model):
         related_name='meal_plans'
     )
     name = models.CharField(max_length=100)
-    start_date = models.DateField()
-    end_date = models.DateField()
 
-    
+    description = models.TextField(blank=True, null=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
 
     def __str__(self):
         return f"{self.name} for {self.user.username}"
