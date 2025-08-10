@@ -25,7 +25,7 @@ class Recipe(models.Model):
         return self.title
     
 class Ingredient(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     unit = models.CharField(max_length=50, choices=[
         ('g', 'grams'),
         ('ml', 'milliliters'),
