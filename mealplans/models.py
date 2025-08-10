@@ -48,15 +48,6 @@ class MealPlanDay(models.Model):
         related_name='days'
     )
     name = models.CharField(max_length=100)
-    day = models.CharField(max_length=10, choices=[
-        ('monday', 'Monday'),
-        ('tuesday', 'Tuesday'),
-        ('wednesday', 'Wednesday'),
-        ('thursday', 'Thursday'),
-        ('friday', 'Friday'),
-        ('saturday', 'Saturday'),
-        ('sunday', 'Sunday'),
-    ])
 
     class Meta:
         unique_together = ('meal_plan', 'day')
