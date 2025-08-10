@@ -42,12 +42,13 @@ class MealPlanDay(models.Model):
         on_delete=models.CASCADE,
         related_name='meal_plan_days'
     )
-
     meal_plan = models.ForeignKey(
         MealPlan,
         on_delete=models.CASCADE,
         related_name='days'
     )
+    name = models.CharField(max_length=100)
+    
     day = models.CharField(max_length=10, choices=[
         ('monday', 'Monday'),
         ('tuesday', 'Tuesday'),
